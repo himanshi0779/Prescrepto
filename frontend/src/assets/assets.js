@@ -75,9 +75,9 @@ export const assets = {
     people_icon,
     add_icon,
     appointments_icon,
+    doctor_icon,
     patients_icon,
     list_icon
-
 }
 
 export const specialityData = [
