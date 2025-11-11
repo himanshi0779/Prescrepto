@@ -40,9 +40,3 @@ app.get('/',(req,res)=>{
 })
 
 app.listen(port,()=>console.log("Server Started at",port))
-
-console.log("ENV TEST:");
-console.log(process.env.CLOUDINARY_NAME);
-console.log(process.env.MONGODB_URL);
-console.log("RAW ENV FILE:");
-console.log(fs.readFileSync(".env", "utf8"));
