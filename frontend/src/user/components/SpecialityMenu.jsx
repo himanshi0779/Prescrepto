@@ -1,6 +1,6 @@
-import React from 'react';
-import { specialityData } from '../../assets/assets';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { specialityData } from "../../assets/assets";
+import { Link } from "react-router-dom";
 
 const SpecialityMenu = () => {
   return (
@@ -18,13 +18,17 @@ const SpecialityMenu = () => {
         your appointment hassle-free.
       </p>
 
-      {/* ✅ Horizontal Scroll for Mobile, Centered Layout for Desktop */}
+      {/* ✅ Horizontal Scroll (mobile) — ✅ Centered Grid (desktop) */}
       <div
         className="
-          flex gap-6 sm:gap-10 pt-6
-          scrollbar-none
-          w-full sm:w-auto sm:justify-center
+          w-full 
+          overflow-x-auto              /* ✅ allows scrolling */
+          flex sm:grid
+          sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 
+          gap-6 sm:gap-10 pt-6
+          scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-300
         "
+        style={{ scrollSnapType: "x mandatory" }}
       >
         {specialityData.map((item, index) => (
           <Link
@@ -32,17 +36,19 @@ const SpecialityMenu = () => {
             to={`/doctors/${item.speciality}`}
             onClick={() => window.scrollTo(0, 0)}
             className="
-              flex flex-col items-center flex-shrink-0 cursor-pointer
-              hover:-translate-y-2 transition-all duration-500
-              snap-start
+              flex flex-col items-center text-center
+              flex-shrink-0 sm:flex-shrink
+              cursor-pointer hover:-translate-y-2 transition-all duration-500
+              w-24
             "
+            style={{ scrollSnapAlign: "start" }}
           >
             <img
               className="w-16 sm:w-24 mb-2"
               src={item.image}
               alt={item.speciality}
             />
-            <p className="text-xs sm:text-sm text-center">{item.speciality}</p>
+            <p className="text-xs sm:text-sm">{item.speciality}</p>
           </Link>
         ))}
       </div>
