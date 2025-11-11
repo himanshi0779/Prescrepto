@@ -1,38 +1,47 @@
-import React, { useContext, useEffect } from 'react'
-import { AdminContext } from '../context/AdminContext'
-import {assets} from "../../assets/assets"
+import React, { useContext, useEffect } from 'react';
+import { AdminContext } from '../context/AdminContext';
+import { assets } from "../../assets/assets";
 
 const DoctorsList = () => {
-  const {doctors, aToken, getAllDoctors, changeAvailability}= useContext(AdminContext)
+  const { doctors, aToken, getAllDoctors, changeAvailability } = useContext(AdminContext);
 
-  useEffect(()=>{
-    if(aToken){
-      getAllDoctors()
-    }
-  },[aToken])
+  useEffect(() => {
+    if (aToken) getAllDoctors();
+  }, [aToken]);
 
   return (
-    <div className='m-5 max-h-[90vh] overflow-y-scroll'>
-      <h1 className='text-lg font-medium'>All Doctors</h1>
-      <div className='w-full flex flex-wrap gap-4 pt-5 gap-y-6'>
-        {
-          doctors.map((item,index)=>(
-            <div className='border border-indigo-200 rounded-xl max-w-36 overflow-hidden cursor-pointer group' key={index}>
-              <img className='bg-indigo-50 group-hover:bg-blue-300 transition-all duration-500' src={item.image} alt=""/>
-              <div className='p-4'>
-                <p className='text-neutral-800 text-lg font-medium'>{item.name}</p>
-                <p className='text-zinc-600 text-sm'>{item.speciality}</p>
-                <div className='mt-2 flex items-center gap-1 text-sm'>
-                  <input onChange={()=> changeAvailability(item._id)} type="checkbox" checked={item.available}/>
-                  <p>Available</p>
-                </div>
+    <div className='m-4 sm:m-5'>
+      <h1 className='text-lg sm:text-xl font-semibold mb-4'>All Doctors</h1>
+      
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+        {doctors.map((item, index) => (
+          <div 
+            key={index} 
+            className='border border-indigo-200 rounded-xl overflow-hidden cursor-pointer group bg-white shadow-sm hover:shadow-md transition-all'
+          >
+            <img 
+              className='w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500' 
+              src={item.image} 
+              alt={item.name} 
+            />
+            <div className='p-4 flex flex-col gap-2'>
+              <p className='text-neutral-800 text-lg font-medium truncate'>{item.name}</p>
+              <p className='text-zinc-600 text-sm truncate'>{item.speciality}</p>
+              <div className='flex items-center gap-2 mt-2'>
+                <input 
+                  onChange={() => changeAvailability(item._id)} 
+                  type="checkbox" 
+                  checked={item.available} 
+                  className='w-4 h-4 accent-blue-500 cursor-pointer'
+                />
+                <p className='text-sm'>Available</p>
               </div>
             </div>
-          ))
-        }
+          </div>
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DoctorsList
+export default DoctorsList;

@@ -1,18 +1,35 @@
-import React from 'react'
-import Header from '../components/Header'
-import SpecialityMenu from '../components/SpecialityMenu'
-import TopDoctors from '../components/TopDoctors'
-import Banner from '../components/Banner'
+import React from 'react';
+import Header from '../components/Header';
+import SpecialityMenu from '../components/SpecialityMenu';
+import TopDoctors from '../components/TopDoctors';
+import Banner from '../components/Banner';
 
 const Home = () => {
   return (
-    <div>
-        <Header/>
-        <SpecialityMenu/>
-        <TopDoctors/>
-        <Banner/>  
-    </div>
-  )
-}
+    <div className="overflow-x-hidden">
 
-export default Home
+      {/* Hero Section */}
+      <section className="mt-4 sm:mt-6">
+        <Header />
+      </section>
+
+      {/* Speciality Row */}
+      <section className="mt-10 sm:mt-16">
+        <SpecialityMenu />
+      </section>
+
+      {/* Top Doctors */}
+      <section className="mt-10 sm:mt-16">
+        <TopDoctors />
+      </section>
+
+      {/* Bottom Banner */}
+      <section className="mt-10 sm:mt-20 mb-16">
+        <Banner />
+      </section>
+
+    </div>
+  );
+};
+
+export default Home;
