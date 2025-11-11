@@ -57,11 +57,13 @@ const RelatedDoctors = ({ speciality, docId }) => {
               shadow-sm
             "
           >
-            <img
-              className="bg-blue-50 w-full h-40 object-cover"
-              src={item.image}
-              alt={item.name}
-            />
+            <div className="w-full h-48 sm:h-56 bg-blue-50 flex items-center justify-center overflow-hidden">
+  <img
+    src={item.image}
+    alt={item.name}
+    className="h-full w-auto object-contain"
+  />
+</div>
 
             <div className="p-4">
               {/* Availability Badge */}
