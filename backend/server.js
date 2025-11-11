@@ -1,0 +1,46 @@
+import dotenv from "dotenv"
+dotenv.config();
+import fs from "fs";
+import express from 'express'
+import cors from 'cors'
+import connectDB from './config/mongodb.js'
+import connectCloudinary from './config/cloudinary.js'
+import adminRouter from './routes/adminRoute.js'
+import doctorRouter from './routes/doctorRoute.js'
+import userRouter from './routes/userRoute.js'
+import Razorpay from 'razorpay'
+
+
+const app= express()
+const port= process.env.PORT || 4000
+connectDB()
+connectCloudinary()
+
+app.use(express.json())
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  credentials: true,
+}));
+
+export const razorpayInstance=new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
+})
+console.log("RAZORPAY TEST:",process.env.RAZORPAY_KEY_ID, process.env.RAZORPAY_KEY_SECRET);
+
+
+app.use('/api/admin', adminRouter)
+app.use('/api/doctor',doctorRouter)
+app.use('/api/user',userRouter)
+
+app.get('/',(req,res)=>{
+    res.send('API working')
+})
+
+app.listen(port,()=>console.log("Server Started at",port))
+
+console.log("ENV TEST:");
+console.log(process.env.CLOUDINARY_NAME);
+console.log(process.env.MONGODB_URL);
+console.log("RAW ENV FILE:");
+console.log(fs.readFileSync(".env", "utf8"));
