@@ -23,7 +23,6 @@ const SpecialityMenu = () => {
         className="
           flex gap-6 sm:gap-10 pt-6
           scrollbar-none
-          snap-x snap-mandatory
           w-full sm:w-auto sm:justify-center
         "
       >
