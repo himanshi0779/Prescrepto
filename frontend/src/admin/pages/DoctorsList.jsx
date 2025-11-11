@@ -19,11 +19,13 @@ const DoctorsList = () => {
             key={index} 
             className='border border-indigo-200 rounded-xl overflow-hidden cursor-pointer group bg-white shadow-sm hover:shadow-md transition-all'
           >
-            <img 
-              className='w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500' 
-              src={item.image} 
-              alt={item.name} 
-            />
+            <div className="w-full h-48 sm:h-56 bg-blue-50 flex items-center justify-center overflow-hidden">
+  <img
+    src={item.image}
+    alt={item.name}
+    className="h-full w-auto object-contain"
+  />
+</div>
             <div className='p-4 flex flex-col gap-2'>
               <p className='text-neutral-800 text-lg font-medium truncate'>{item.name}</p>
               <p className='text-zinc-600 text-sm truncate'>{item.speciality}</p>
