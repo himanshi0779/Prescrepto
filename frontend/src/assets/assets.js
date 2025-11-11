@@ -20,6 +20,10 @@ import home_icon from './home_icon.svg'
 import appointment_icon from './appointment_icon.svg'
 import people_icon from './people_icon.svg'
 import add_icon from './add_icon.svg'
+import doctor_icon from './doctor_icon.svg'
+import appointments_icon from './appointments_icon.svg'
+import patients_icon from './patients_icon.svg'
+import list_icon from './list_icon.svg'
 import doc1 from './doc1.png'
 import doc2 from './doc2.png'
 import doc3 from './doc3.png'
@@ -69,7 +73,10 @@ export const assets = {
     home_icon,
     appointment_icon,
     people_icon,
-    add_icon
+    add_icon,
+    appointments_icon,
+    patients_icon,
+    list_icon
 
 }
 
