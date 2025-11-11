@@ -45,7 +45,7 @@ const TopDoctors = () => {
             "
           >
             <img
-              className="bg-blue-50 w-full h-40 object-cover"
+              className="bg-blue-50 w-full h-56 object-cover"
               src={item.image}
               alt={item.name}
             />
