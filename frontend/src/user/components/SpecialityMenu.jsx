@@ -21,8 +21,7 @@ const SpecialityMenu = () => {
       {/* ✅ Horizontal Scroll for Mobile, Centered Layout for Desktop */}
       <div
         className="
-          flex gap-6 sm:gap-10 pt-6 overflow-x-auto
-          sm:overflow-visible
+          flex gap-6 sm:gap-10 pt-6
           scrollbar-none
           snap-x snap-mandatory
           w-full sm:w-auto sm:justify-center
