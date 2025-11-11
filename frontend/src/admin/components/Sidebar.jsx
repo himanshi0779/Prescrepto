@@ -1,68 +1,97 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { assets } from '../../assets/assets.js';
-import { DoctorContext } from '../context/DoctorContext.jsx';
+import { assets } from '../../assets/assets';
+import { AdminContext } from '../context/AdminContext';
 
 const Sidebar = () => {
-  const { dToken } = useContext(DoctorContext);
+  const { aToken } = useContext(AdminContext);
+
+  if (!aToken) return null;
+
+  // ✅ fallback icon if path is broken
+  const fallback = "https://via.placeholder.com/20";
 
   return (
-    <div className="min-h-screen bg-white border-r w-20 md:w-72 transition-all">
-      {dToken && (
-        <ul className="text-[#515151] mt-5">
+    <div className="hidden md:flex flex-col min-h-screen w-64 bg-white border-r sticky top-0">
+      <ul className="text-[#515151] mt-5 flex flex-col gap-1">
 
-          {/* Dashboard */}
-          <NavLink
-            className={({ isActive }) =>
-              `flex items-center gap-4 py-3.5 px-4 cursor-pointer ${
-                isActive ? 'bg-[#F2F3FF] border-r-4 border-[#5F65FF]' : ''
-              }`
-            }
-            to={'/doctor/dashboard'}
-          >
-            <img
-              src={assets.home_icon}
-              alt="dashboard"
-              className="w-6 h-6 flex-shrink-0"
-            />
-            <p className="hidden md:block">Dashboard</p>
-          </NavLink>
+        {/* Dashboard */}
+        <NavLink
+          className={({ isActive }) =>
+            `flex items-center gap-3 py-3.5 px-6 cursor-pointer rounded-r-lg ${
+              isActive
+                ? "bg-[#F2F3FF] border-r-4 border-[#5F65FF]"
+                : "hover:bg-gray-100"
+            }`
+          }
+          to="/admin/dashboard"
+        >
+          <img
+            src={assets.home_icon || fallback}
+            alt="Dashboard"
+            className="w-5 h-5"
+          />
+          <p className="text-sm">Dashboard</p>
+        </NavLink>
 
-          {/* Appointments */}
-          <NavLink
-            className={({ isActive }) =>
-              `flex items-center gap-4 py-3.5 px-4 cursor-pointer ${
-                isActive ? 'bg-[#F2F3FF] border-r-4 border-[#5F65FF]' : ''
-              }`
-            }
-            to={'/doctor/appointments'}
-          >
-            <img
-              src={assets.appointment_icon}
-              alt="appointments"
-              className="w-6 h-6 flex-shrink-0"
-            />
-            <p className="hidden md:block">Appointments</p>
-          </NavLink>
+        {/* Appointments */}
+        <NavLink
+          className={({ isActive }) =>
+            `flex items-center gap-3 py-3.5 px-6 cursor-pointer rounded-r-lg ${
+              isActive
+                ? "bg-[#F2F3FF] border-r-4 border-[#5F65FF]"
+                : "hover:bg-gray-100"
+            }`
+          }
+          to="/admin/all-appointments"
+        >
+          <img
+            src={assets.appointment_icon || fallback}
+            alt="Appointments"
+            className="w-5 h-5"
+          />
+          <p className="text-sm">Appointments</p>
+        </NavLink>
 
-          {/* Profile */}
-          <NavLink
-            className={({ isActive }) =>
-              `flex items-center gap-4 py-3.5 px-4 cursor-pointer ${
-                isActive ? 'bg-[#F2F3FF] border-r-4 border-[#5F65FF]' : ''
-              }`
-            }
-            to={'/doctor/profile'}
-          >
-            <img
-              src={assets.people_icon}
-              alt="profile"
-              className="w-6 h-6 flex-shrink-0"
-            />
-            <p className="hidden md:block">Profile</p>
-          </NavLink>
-        </ul>
-      )}
+        {/* Add Doctor */}
+        <NavLink
+          className={({ isActive }) =>
+            `flex items-center gap-3 py-3.5 px-6 cursor-pointer rounded-r-lg ${
+              isActive
+                ? "bg-[#F2F3FF] border-r-4 border-[#5F65FF]"
+                : "hover:bg-gray-100"
+            }`
+          }
+          to="/admin/add-doctor"
+        >
+          <img
+            src={assets.add_icon || fallback}
+            alt="Add Doctor"
+            className="w-5 h-5"
+          />
+          <p className="text-sm">Add Doctor</p>
+        </NavLink>
+
+        {/* Doctors List */}
+        <NavLink
+          className={({ isActive }) =>
+            `flex items-center gap-3 py-3.5 px-6 cursor-pointer rounded-r-lg ${
+              isActive
+                ? "bg-[#F2F3FF] border-r-4 border-[#5F65FF]"
+                : "hover:bg-gray-100"
+            }`
+          }
+          to="/admin/doctor-list"
+        >
+          <img
+            src={assets.people_icon || fallback}
+            alt="Doctors List"
+            className="w-5 h-5"
+          />
+          <p className="text-sm">Doctors List</p>
+        </NavLink>
+
+      </ul>
     </div>
   );
 };

@@ -15,6 +15,11 @@ import info_icon from './info_icon.svg'
 import upload_icon from './upload_icon.png'
 import stripe_logo from './stripe_logo.png'
 import razorpay_logo from './razorpay_logo.png'
+import admin_logo from './admin_logo.png'
+import home_icon from './home_icon.png'
+import appointment_icon from './appointment_icon.png'
+import people_icon from './people_icon.png'
+import add_icon from './add_icon.png'
 import doc1 from './doc1.png'
 import doc2 from './doc2.png'
 import doc3 from './doc3.png'
@@ -59,7 +64,13 @@ export const assets = {
     stripe_logo,
     razorpay_logo,
     cancel_icon,
-    tick_icon
+    tick_icon,
+    admin_logo,
+    home_icon,
+    appointment_icon,
+    people_icon,
+    add_icon
+
 }
 
 export const specialityData = [
