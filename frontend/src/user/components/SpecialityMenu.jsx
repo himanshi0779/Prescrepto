@@ -21,12 +21,13 @@ const SpecialityMenu = () => {
       {/* ✅ Horizontal Scroll (mobile) — ✅ Centered Grid (desktop) */}
       <div
         className="
-          w-full 
-          overflow-x-auto              /* ✅ allows scrolling */
-          flex sm:grid
-          sm:grid-cols-6 md:grid-cols-6 lg:grid-cols-6 
-          gap-6 sm:gap-10 pt-6
-          scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-300
+          flex gap-6 sm:gap-10 pt-6
+    w-full
+    overflow-x-auto
+    whitespace-nowrap
+    scrollbar-none
+    px-2
+
         "
         style={{ scrollSnapType: "x mandatory" }}
       >
