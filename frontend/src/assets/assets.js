@@ -24,6 +24,7 @@ import doctor_icon from './doctor_icon.svg'
 import appointments_icon from './appointments_icon.svg'
 import patients_icon from './patients_icon.svg'
 import list_icon from './list_icon.svg'
+import earning_icon from './earning_icon.svg'
 import doc1 from './doc1.png'
 import doc2 from './doc2.png'
 import doc3 from './doc3.png'
@@ -77,7 +78,8 @@ export const assets = {
     appointments_icon,
     doctor_icon,
     patients_icon,
-    list_icon
+    list_icon,
+    earning_icon
 }
 
 export const specialityData = [
